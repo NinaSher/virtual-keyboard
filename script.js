@@ -5,7 +5,7 @@ const keyboard = [113, 113, 119, 101, 114, 116, 121, 117, 105, 111, 112, 91, 93,
 	console.log(keyboard);
 }*/
 
-function init() {
+function board () {
 	let out = '';
 	for (let i = 0; i < keyboard.length; i++) {
 		if (i == 12 || i == 24) {
@@ -15,5 +15,11 @@ function init() {
 	}
 	document.querySelector('#keyboard').innerHTML = out;
 }
-init();
+board();
 
+document.onkeypress = function (event) {
+	document.querySelectorAll('#keyboard .key-box').forEach(function(element){
+		element.classList.remove('active');
+	});
+	document.querySelector('#keyboard .key-box[data="' + event.keyCode +'"]').classList.add('active');
+}
