@@ -4,3 +4,16 @@ const keyboard = [113, 113, 119, 101, 114, 116, 121, 117, 105, 111, 112, 91, 93,
 	keyboard.push(event.charCode);
 	console.log(keyboard);
 }*/
+
+function init() {
+	let out = '';
+	for (let i = 0; i < keyboard.length; i++) {
+		if (i == 12 || i == 24) {
+			out += '<divclass="clearfix></div>';
+		}
+		out += '<div class="key-box" data="'+ keyboard[i] + '">' + String.fromCharCode(keyboard[i]) + '</div>';
+	}
+	document.querySelector('#keyboard').innerHTML = out;
+}
+init();
+
